@@ -107,10 +107,7 @@ class Subscription {
                         }
                         catch(err) { reject(err) }
                     }
-                    else reject({
-                        status: 400,
-                        message: "You don't have any subscriptions active"
-                    })
+                    else resolve({ subscription: "You don't have any subscriptions active" })
                     
                 })
                 .catch((err) => reject(err))

@@ -45,6 +45,14 @@ class User {
                 .catch(err => reject(err))
         });
     };
+
+    remove = ({ id }) => {
+        return new Promise(async (resolve, reject) => {
+            await this.connection.delete("users", { id: id })
+                .then(dt => resolve(dt))
+                .catch(err => reject(err))
+        });
+    };
 };
 
 module.exports = User;

@@ -17,6 +17,7 @@ app.use(
 // Import routers here
 app.use("/subscribe", require("./router/subscription.router"));
 app.use("/auth", require("./router/auths.route"));
+app.use("/user", require("./router/users.route"));
 
 app.use((req, res, next) => {
   const err = {};
