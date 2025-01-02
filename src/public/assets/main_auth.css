@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    font-family: "Jaldi", serif;
+    font-weight: bold;
+}
+
+body {
+    background: #272727;
+    font-family: "Jaldi", serif;
+    font-weight: bold;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.submit {
+    width: 280px;
+    min-height: 230px;
+    border-radius: 3px;
+    background: #404040;
+    margin-top: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+.submit input {
+    font-family: "Jaldi", serif;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555555;
+    padding: 3px 30px 0px 5px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 15px;
+    width: 235px;
+    transition: all .5s;
+    border-radius: 0px;
+}
+
+.submit input:focus {
+    border-bottom: 1px solid #FFF;
+}
+
+.submit p {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.submit .button {
+    padding: 0px 15px;
+    background: #ffffff;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    color: #404040;
+}
+
+.display-none {
+    display: none;
+}
+
+.message {
+    font-size: 13px !important;
+}
+
+.message a {
+    color: #FFF;
+}

@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #272727;
+    font-family: "Jaldi", serif;
+    font-weight: bold;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul .logo {
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+nav ul .logo:hover {
+    background: #404040;
+}
+
+nav ul .logo a {
+    text-decoration: none;
+    color: #B3B3B3;
+}
+
+.options {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+}
+
+.option:hover {
+    background: #717171;
+}
+
+.container {
+    width: 90%;
+}
+
+.container-header {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.container-header p {
+    font-size: 18px;
+    padding: 0px 6px;
+    background-color: #404040;
+    border-radius: 5px;
+    color: #b3b3b3;
+}
+
+.container-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 140px));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-card {
+    width: 140px;
+    height: 222px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.game-card img {
+    width: 140px;
+    height: 222px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    transition: all .5s;
+}
+
+.game-card img:hover {
+    border: 3px solid #919191;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-body {
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+    }
+}

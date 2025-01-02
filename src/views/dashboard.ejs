@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEX-System</title>
+    <link rel="stylesheet" href="/assets/main.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <div class="logo"><a href="/">NEX SYSTEM CLOUD</a></div>
+            <div class="options">
+                <div class="option"><img src="/assets/icons/not-connected-controller.png" id="status"></div>
+                <div class="option" id="redirect"><img src="/assets/icons/user.png"></div>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="container-header">
+            <h2>All Games</h2>
+            <p>A-z</p>
+        </div>
+
+        <div class="container-body">
+            <% documents.forEach(doc=> { %>
+                <div class="game-card" onclick="(() => { redirectGame('<%= doc.path %>') })()">
+                    <img src="<%= doc.image %>">
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <script src="/controllers/dashboard.controller.js"></script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 require("dotenv").config();
 const os = require("os");
-const { app } = require("../src/app");
+const { server, app } = require("../src/app");
 
 const options = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
 
@@ -40,7 +40,7 @@ app.db
   })
   .catch((err) => console.error("Unable to connect to the database:", err));
 
-app.listen(process.env.PORT || 3000, () => {
+server.listen(process.env.PORT || 3000, () => {
   const date = new Date();
   const serverIP = ServerIP();
 

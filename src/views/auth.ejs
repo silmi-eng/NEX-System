@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEX-System</title>
+    <link rel="stylesheet" href="/assets/main_auth.css">
+</head>
+
+<body>
+    <h2 style="font-size: 40px">NEX SYSTEM</h2>
+
+    <div class="submit">
+        <p>
+            <%=auth%>
+        </p>
+        <input type="text" placeholder="Email">
+        <input type="password" placeholder="Password">
+
+        <p class="<%= auth !== 'Sign in' ? 'display-none' : '' %> message">Don't have an account. <a href="/signup">Create!</a></p>
+        <div class="button">Continue</div>
+    </div>
+</body>
+
+</html>
