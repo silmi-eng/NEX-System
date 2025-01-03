@@ -12,15 +12,49 @@
     <h2 style="font-size: 40px">NEX SYSTEM</h2>
 
     <div class="submit">
-        <p>
-            <%=auth%>
-        </p>
-        <input type="text" placeholder="Email">
-        <input type="password" placeholder="Password">
+        <form id="authForm">
+            <p>
+                <%= auth %>
+            </p>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
 
-        <p class="<%= auth !== 'Sign in' ? 'display-none' : '' %> message">Don't have an account. <a href="/signup">Create!</a></p>
-        <div class="button">Continue</div>
+            <p class="<%= auth !== 'Sign in' ? 'display-none' : '' %> message">
+                Don't have an account? <a href="/signup">Create!</a>
+            </p>
+            <button type="submit" class="button">Continue</button>
+        </form>
     </div>
+
+    <script>
+        document.getElementById("authForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('<%=endpoint%>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    localStorage.setItem("uuid", JSON.stringify(result));
+                    window.location.href = "/";
+                } else {
+                    const error = await response.json();
+                    console.error('Erro: ' + error.message);
+                }
+            } catch (err) {
+                console.error('Erro na requisição:', err);
+            }
+        });
+    </script>
 </body>
 
 </html>

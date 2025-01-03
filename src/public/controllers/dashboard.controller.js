@@ -22,18 +22,18 @@ setInterval(gamepadsConnected, 500);
 
 // Account redirect
 document.getElementById("redirect").addEventListener("click", () => {
-  const storage = localStorage.getItem("uuid") || null;
+  const storage = JSON.parse(localStorage.getItem("uuid") || null);
 
-  if (storage !== null) window.location.href = "/user";
+  if (storage !== null) window.location.href = `/user`;
   else window.location.href = "/signin";
 });
 
 // Open Game
 const redirectGame = (game) => {
-    const storage = localStorage.getItem("uuid") || null;
+    const storage = JSON.parse(localStorage.getItem("uuid") || null);
 
     if (storage !== null) {
-        window.location.href = `/${game}/${storage}/play`
+        window.location.href = `/${game}/${storage.access_token}/play`
     }
     else {
         console.log("error");

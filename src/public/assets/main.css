@@ -124,3 +124,40 @@ nav ul .logo a {
         grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
     }
 }
+
+.container-body-user {
+    margin-left: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.container-body-user h3 {
+    position: relative;
+}
+
+.status {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    top: 35%;
+    right: -20px;
+}
+
+.button-subscribe {
+    background: #404040;
+    padding: 3px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#redirect {
+    cursor: pointer;
+}

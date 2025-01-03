@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Import routers here
 app.use("/subscribe", require("./router/subscription.router"));
 app.use("/auth", require("./router/auths.route"));
-app.use("/user", require("./router/users.route"));
+app.use("/users", require("./router/users.route"));
 app.use("/", require("./router/pages.route"));
 
 app.use((req, res, next) => {

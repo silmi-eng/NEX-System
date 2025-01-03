@@ -58,6 +58,8 @@ body {
 }
 
 .submit .button {
+    font-family: "Jaldi", serif;
+    font-weight: bold;
     padding: 0px 15px;
     background: #ffffff;
     border-radius: 3px;
@@ -66,6 +68,8 @@ body {
     right: 40px;
     bottom: 40px;
     color: #404040;
+    font-size: 15px;
+    border: none;
 }
 
 .display-none {

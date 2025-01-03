@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat com Socket.IO</title>
-  <script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NES Emulator</title>
+    <link rel="stylesheet" href="/assets/main.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
 </head>
+
 <body>
-  <h1>Chat com Socket.IO</h1>
-  <div id="messages"></div>
-  <input id="messageInput" type="text" placeholder="Digite sua mensagem">
-  <button id="sendButton">Enviar</button>
-
-  <script>
-    const socket = io();
-    socket.emit("request-game", { token: "<%= token %>", game: "<%= game %>"  });
-
-    socket.on("response-request", ({ code, message }) => {
-        console.log({ code, message })
-        socket.emit("start")
-    })
-  </script>
+    <canvas id="nes"></canvas>
+    <script>
+      const socket = io();
+      socket.emit("load-game", { game: "<%= game %>" });
+    </script>
 </body>
+
 </html>
