@@ -17,8 +17,8 @@ class Subscription {
                     payment_method: {
                         payer_selected: "PAYPAL",
                     },
-                    return_url: `http://192.168.1.167:3000/subscribe/success?uuid=${approval}`,
-                    cancel_url: "http://192.168.1.167:3000/subscribe/cancel",
+                    return_url: `${process.env.URL}/subscribe/success?uuid=${approval}`,
+                    cancel_url: `${process.env.URL}/annulled`,
                 },
             }
         }

@@ -11,10 +11,10 @@
 <body>
     <nav>
         <ul>
-            <div class="logo"><a href="/">NEX SYSTEM CLOUD</a></div>
+            <div class="logo"><a href="/home">NEX SYSTEM CLOUD</a></div>
             <div class="options">
                 <div class="option"><img src="/assets/icons/not-connected-controller.png" id="status"></div>
-                <div class="option" id="redirect"><img src="/assets/icons/user.png"></div>
+                <div class="option users" style="cursor: pointer;"><img src="/assets/icons/user.png"></div>
             </div>
         </ul>
     </nav>
@@ -27,10 +27,30 @@
 
         <div class="container-body">
             <% documents.forEach(doc=> { %>
-                <div class="game-card" onclick="(() => { redirectGame('<%= doc.path %>') })()">
+                <div class="game-card" onclick="(() => { redirect('<%= doc.path %>') })()">
                     <img src="<%= doc.image %>">
                 </div>
             <% }) %>
+        </div>
+    </div>
+
+    <div class="user-settings hidden none">
+        <div class="user-settings-popup">
+            <div class="close"><img src="/assets/icons/close.png"></div>
+            <div class="user-settings-options">
+                <span class="user-settings-options-title">Settings</span>
+                <span class="user-settings-option selected">Subscriptions</span>
+                <span class="user-settings-option">User</span>
+            </div>
+    
+            <div class="user-settings-body">
+                <div class="details subscription">
+                    <h2>Subscriptions</h2>
+                </div>
+                <div class="details user hidden">
+                    <h2>User</h2>
+                </div>
+            </div>
         </div>
     </div>
 

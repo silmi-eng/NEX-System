@@ -14,7 +14,12 @@ class User {
     find = (filter = {}) => {
         return new Promise(async (resolve, reject) => {
             this.connection.searchByTerm("users", filter)
-                .then(dt => resolve(dt))
+                .then(dt => {
+                    if (dt === undefined)
+                        throw new Error("User not found");
+                    
+                    resolve(dt)
+                })
                 .catch(err => reject(err))
         });
     };

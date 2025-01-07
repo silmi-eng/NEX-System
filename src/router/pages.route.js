@@ -20,18 +20,18 @@ router.get("/signup", (req, res, next) => {
     });
 });
 
-router.get("/:game/:uuid/play", (req, res, next) => {
+router.get("/:game/play", passportInstance.subscription(), (req, res, next) => {
     res.status(200).render('game', { game: req.params.game });
 });
 
-router.get("/", async (req, res, next) => {
+router.get("/home", async (req, res, next) => {
     await room.createList().then((documents) => {
         res.status(200).render('dashboard', { documents });
     })
 });
 
-router.get("/user", async (req, res, next) => {
-    res.status(200).render('user');
+router.get("/error", (req, res, next) => {
+    res.status(req.query.code).render("error", { message: req.query.err });
 })
 
 module.exports = router;

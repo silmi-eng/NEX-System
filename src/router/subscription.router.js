@@ -27,7 +27,7 @@ router.post('/unsubscribe', passportInstance.authenticateCommon(), async (req, r
 
 router.get('/success', passportInstance.proceedToPayment(), async (req, res, next) => {
     await subscriptions.success({subscription: req.query.subscription_id, u: req.user})
-        .then(({subscription}) => res.status(200).json({subscription}))
+        .then(({subscription}) => res.status(200).redirect("/"))
         .catch(err => {
             err.status = 400;
             err.message = "Something happen during subscription process.";
@@ -35,11 +35,9 @@ router.get('/success', passportInstance.proceedToPayment(), async (req, res, nex
         })
 });
 
-router.get('/cancel', passportInstance.proceedToPayment(), async (req, res, next) => {
-    res.status(200).json("Operation aborted")
-});
-
 router.get('/details', passportInstance.authenticateCommon(), async (req, res, next) => {
+    console.log(req.user);
+    
     await subscriptions.getSubscriptionDetails({ u: req.user })
         .then(({subscription}) => res.status(200).json({subscription}))
         .catch(err => {

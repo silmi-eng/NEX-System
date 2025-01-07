@@ -20,10 +20,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Import routers here
+app.use("/", require("./router/pages.route"));
 app.use("/subscribe", require("./router/subscription.router"));
 app.use("/auth", require("./router/auths.route"));
 app.use("/users", require("./router/users.route"));
-app.use("/", require("./router/pages.route"));
 
 app.use((req, res, next) => {
   const err = {};
@@ -35,10 +35,13 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   const { name, message, stack } = err;
 
+  console.log(err);
+  
+
   if (err.status === 404 && err.message === "Page not found")
-    res.status(err.status).redirect("/");
+    res.status(err.status).redirect("/home");
   else
-    res.status(err.status).json(message);
+    res.status(err.status).redirect(`/error/?err=${err.message}&code=${err.status}`);
 });
 
 const { server } = require("./sockets/emulator.socket")(app);

@@ -2,20 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NES Emulator</title>
-    <link rel="stylesheet" href="/assets/main.css">
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NES Emulator</title>
+  <link rel="stylesheet" href="/assets/main.css">
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js"></script>
 </head>
 
 <body>
-    <canvas id="nes"></canvas>
-    <script>
-      const socket = io();
-      socket.emit("load-game", { game: "<%= game %>" });
-    </script>
+  <canvas id="nes"></canvas>
+  <span class="ping"></span>
+  <script>
+    const socket = io({ transports: ["websocket"] });
+    socket.emit("load-game", { game: "<%= game %>" });
+  </script>
+
+  <script>
+    const ping = () => {
+      const start = Date.now();
+
+      socket.emit("ping", () => {
+        const latency = Date.now() - start;
+        document.getElementsByClassName("ping")[0].innerHTML = `${latency}ms`;
+      });
+    };
+
+    setInterval(ping, 1000);
+  </script>
 </body>
 
 </html>
